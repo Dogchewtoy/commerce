@@ -7,10 +7,8 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - uses: snyk/actions/setup@master
-     - name: Install Dependencies
-       run: npm install
      - name: Snyk Test 
-       run: snyk test --all-projects --sarif-file-output=snyk-sarif.json
+       run: snyk test --all-projects --yarn-workspaces --sarif-file-output=snyk-sarif.json
        continue-on-error: true       
        env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
