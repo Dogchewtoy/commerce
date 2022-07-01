@@ -11,7 +11,9 @@ jobs:
        run: snyk test --sarif-file-output=snyk-sarif.json
        continue-on-error: true       
        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}    
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}  
+     - name: Install Dependencies
+       run: npm install
      - name: Open Source Test
        run: snyk test --all-projects
        continue-on-error: true       
